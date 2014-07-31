@@ -4,7 +4,7 @@ public class FizzBuzz
 {
 	public String say(int num)
 	{
-		if(num == 3)
+		if(num % 3 == 0)
 		{
 			return "Fizz";
 		}
