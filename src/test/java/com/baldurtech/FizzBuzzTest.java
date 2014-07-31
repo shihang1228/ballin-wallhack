@@ -15,21 +15,26 @@ public class FizzBuzzTest
 	
 	public void test_1()
 	{		
-		System.out.println("1".equals(fizzBuzz.say(1)));
+		System.out.println(assertEquals("1", 1));
 	}
 	
 	public void test_2()
 	{
-		System.out.println("2".equals(fizzBuzz.say(2)));
+		System.out.println(assertEquals("2", 2));
 	}
 	
 	public void test_3()
 	{
-		System.out.println("Fizz".equals(fizzBuzz.say(3)));
+		System.out.println(assertEquals("Fizz", 3));
 	}
 	
 	public void test_4()
 	{
-		System.out.println("Buzz".equals(fizzBuzz.say(5)));
+		System.out.println(assertEquals("Buzz", 5));
+	}
+	
+	public Boolean assertEquals(String expectedResult, int param)
+	{
+		return expectedResult.equals(fizzBuzz.say(param));
 	}
 }
