@@ -68,6 +68,13 @@ public class FizzBuzzTest
 	}
 	public void outputTestReport(boolean report)
 	{
-		System.out.println(report);
+		if(report)
+		{
+			System.out.println("TEST SUCCESS!");
+		}
+		else
+		{
+			System.out.println("TEST FAILED!");
+		}
 	}
 }
