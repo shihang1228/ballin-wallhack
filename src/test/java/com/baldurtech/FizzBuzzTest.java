@@ -15,6 +15,7 @@ public class FizzBuzzTest
 		fizzBuzzTest.test_3();
 		fizzBuzzTest.test_4();	
 		fizzBuzzTest.test_5();
+		fizzBuzzTest.test_6();
 		
 		fizzBuzzTest.outputTestReport();
 	}
@@ -61,6 +62,15 @@ public class FizzBuzzTest
 		{
 			result = false;
 			System.out.println("Expected Buzz, But " + fizzBuzz.say(10));
+		}
+	}
+	
+	public void test_6()
+	{
+		if(false == assertEquals("Fizz",6))
+		{
+			result = false;
+			System.out.println("Expected Fizz, But " + fizzBuzz.say(6));
 		}
 	}
 	
