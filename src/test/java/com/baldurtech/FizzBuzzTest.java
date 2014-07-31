@@ -15,24 +15,51 @@ public class FizzBuzzTest
 	}
 	
 	public void test_1()
-	{		
-		outputTestReport(assertEquals("1", 1));
-		
+	{	
+		if(assertEquals("1", 1))
+		{
+			outputTestReport(true);
+		}
+		else
+		{
+			outputTestReport(false);
+		}	
 	}
 	
 	public void test_2()
 	{
-		outputTestReport(assertEquals("2", 2));
+		if(assertEquals("2", 2))
+		{
+			outputTestReport(true);
+		}
+		else
+		{
+			outputTestReport(false);
+		}	
 	}
 	
 	public void test_3()
 	{
-		outputTestReport(assertEquals("Fizz", 3));
+		if(assertEquals("Fizz", 3))
+		{
+			outputTestReport(true);
+		}
+		else
+		{
+			outputTestReport(false);
+		}	
 	}
 	
 	public void test_4()
 	{
-		outputTestReport(assertEquals("Buzz", 5));
+		if(assertEquals("Buzz", 5))
+		{
+			outputTestReport(true);
+		}
+		else
+		{
+			outputTestReport(false);
+		}	
 	}
 	
 	public Boolean assertEquals(String expectedResult, int param)
