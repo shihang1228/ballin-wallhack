@@ -9,5 +9,6 @@ public class FizzBuzzTest
 		System.out.println("1".equals(fizzBuzz.say(1)));
 		System.out.println("2".equals(fizzBuzz.say(2)));
 		System.out.println("Fizz".equals(fizzBuzz.say(3)));
+		System.out.println("Buzz".equals(fizzBuzz.say(5)));
 	}
 }
