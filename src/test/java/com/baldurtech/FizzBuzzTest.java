@@ -14,6 +14,7 @@ public class FizzBuzzTest
 		fizzBuzzTest.test_2();
 		fizzBuzzTest.test_3();
 		fizzBuzzTest.test_4();	
+		fizzBuzzTest.test_5();
 		
 		fizzBuzzTest.outputTestReport();
 	}
@@ -52,6 +53,15 @@ public class FizzBuzzTest
 			result = false;
 			System.out.println("Expected Buzz, But " + fizzBuzz.say(5));
 		}	
+	}
+	
+	public void test_5()
+	{
+		if(false == assertEquals("Buzz",10))
+		{
+			result = false;
+			System.out.println("Expected Buzz, But " + fizzBuzz.say(10));
+		}
 	}
 	
 	public Boolean assertEquals(String expectedResult, int param)
