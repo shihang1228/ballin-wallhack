@@ -20,11 +20,7 @@ public class FizzBuzzTest
 	
 	public void test_1()
 	{	
-		if(assertEquals("1", 1))
-		{
-		
-		}
-		else
+		if(false == assertEquals("1", 1))
 		{
 			result = false;
 			System.out.println("Expected 1, But " + fizzBuzz.say(1));
@@ -33,11 +29,7 @@ public class FizzBuzzTest
 	
 	public void test_2()
 	{
-		if(assertEquals("2", 2))
-		{
-
-		}
-		else
+		if(false == assertEquals("2", 2))
 		{
 			result = false;
 			System.out.println("Expected 2, But " + fizzBuzz.say(2));
@@ -46,11 +38,7 @@ public class FizzBuzzTest
 	
 	public void test_3()
 	{
-		if(assertEquals("Fizz", 3))
-		{
-
-		}
-		else
+		if(false == assertEquals("Fizz", 3))
 		{
 			result = false;
 			System.out.println("Expected Fizz, But " + fizzBuzz.say(3));
@@ -59,11 +47,7 @@ public class FizzBuzzTest
 	
 	public void test_4()
 	{
-		if(assertEquals("Buzz", 5))
-		{
-		
-		}
-		else
+		if(false == assertEquals("Buzz", 5))
 		{
 			result = false;
 			System.out.println("Expected Buzz, But " + fizzBuzz.say(5));
