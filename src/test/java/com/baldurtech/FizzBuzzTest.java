@@ -4,6 +4,8 @@ package com.baldurtech;
 public class FizzBuzzTest
 {
 	FizzBuzz fizzBuzz = new FizzBuzz();
+	public static Boolean result = true;
+	
 	public static void main(String[] args)
 	{
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
@@ -12,17 +14,19 @@ public class FizzBuzzTest
 		fizzBuzzTest.test_2();
 		fizzBuzzTest.test_3();
 		fizzBuzzTest.test_4();	
+		
+		fizzBuzzTest.outputTestReport();
 	}
 	
 	public void test_1()
 	{	
 		if(assertEquals("1", 1))
 		{
-			outputTestReport(true);
+		
 		}
 		else
 		{
-			outputTestReport(false);
+			result = false;
 			System.out.println("Expected 1, But " + fizzBuzz.say(1));
 		}	
 	}
@@ -31,11 +35,11 @@ public class FizzBuzzTest
 	{
 		if(assertEquals("2", 2))
 		{
-			outputTestReport(true);
+
 		}
 		else
 		{
-			outputTestReport(false);
+			result = false;
 			System.out.println("Expected 2, But " + fizzBuzz.say(2));
 		}	
 	}
@@ -44,11 +48,11 @@ public class FizzBuzzTest
 	{
 		if(assertEquals("Fizz", 3))
 		{
-			outputTestReport(true);
+
 		}
 		else
 		{
-			outputTestReport(false);
+			result = false;
 			System.out.println("Expected Fizz, But " + fizzBuzz.say(3));
 		}	
 	}
@@ -57,11 +61,11 @@ public class FizzBuzzTest
 	{
 		if(assertEquals("Buzz", 5))
 		{
-			outputTestReport(true);
+		
 		}
 		else
 		{
-			outputTestReport(false);
+			result = false;
 			System.out.println("Expected Buzz, But " + fizzBuzz.say(5));
 		}	
 	}
@@ -70,15 +74,15 @@ public class FizzBuzzTest
 	{
 		return expectedResult.equals(fizzBuzz.say(param));
 	}
-	public void outputTestReport(boolean report)
+	public void outputTestReport()
 	{
-		if(report)
+		if(result)
 		{
-			System.out.println("TEST SUCCESS!");
+			System.out.println("Test Success!");
 		}
 		else
 		{
-			System.out.println("TEST FAILED!");
+			System.out.println("Test Failed!");
 		}
 	}
 }
