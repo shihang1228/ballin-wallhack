@@ -23,6 +23,7 @@ public class FizzBuzzTest
 		else
 		{
 			outputTestReport(false);
+			System.out.println("Expected 1, But " + fizzBuzz.say(1));
 		}	
 	}
 	
@@ -35,6 +36,7 @@ public class FizzBuzzTest
 		else
 		{
 			outputTestReport(false);
+			System.out.println("Expected 2, But " + fizzBuzz.say(2));
 		}	
 	}
 	
@@ -47,6 +49,7 @@ public class FizzBuzzTest
 		else
 		{
 			outputTestReport(false);
+			System.out.println("Expected Fizz, But " + fizzBuzz.say(3));
 		}	
 	}
 	
@@ -59,6 +62,7 @@ public class FizzBuzzTest
 		else
 		{
 			outputTestReport(false);
+			System.out.println("Expected Buzz, But " + fizzBuzz.say(5));
 		}	
 	}
 	
