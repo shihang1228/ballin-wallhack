@@ -22,61 +22,42 @@ public class FizzBuzzTest
 	
 	public void test_1()
 	{	
-		if(false == assertEquals("1", 1))
-		{
-			result = false;
-			System.out.println("Expected 1, But " + fizzBuzz.say(1));
-		}	
+		assertEquals("1", 1);
 	}
 	
 	public void test_2()
 	{
-		if(false == assertEquals("2", 2))
-		{
-			result = false;
-			System.out.println("Expected 2, But " + fizzBuzz.say(2));
-		}	
+		assertEquals("2", 2);	
 	}
 	
 	public void test_3()
 	{
-		if(false == assertEquals("Fizz", 3))
-		{
-			result = false;
-			System.out.println("Expected Fizz, But " + fizzBuzz.say(3));
-		}	
+		assertEquals("Fizz", 3);	
 	}
 	
 	public void test_4()
 	{
-		if(false == assertEquals("Buzz", 5))
-		{
-			result = false;
-			System.out.println("Expected Buzz, But " + fizzBuzz.say(5));
-		}	
+		assertEquals("Buzz", 5);	
 	}
 	
 	public void test_5()
 	{
-		if(false == assertEquals("Buzz",10))
-		{
-			result = false;
-			System.out.println("Expected Buzz, But " + fizzBuzz.say(10));
-		}
+		assertEquals("Buzz",10);
 	}
 	
 	public void test_6()
 	{
-		if(false == assertEquals("Fizz",6))
+		assertEquals("Fizz",6);
+	}
+	
+	public void assertEquals(String expectedResult, int param)
+	{
+		String actualResult = fizzBuzz.say(param);
+		if(false == actualResult.equals(expectedResult))
 		{
 			result = false;
 			System.out.println("Expected Fizz, But " + fizzBuzz.say(6));
 		}
-	}
-	
-	public Boolean assertEquals(String expectedResult, int param)
-	{
-		return expectedResult.equals(fizzBuzz.say(param));
 	}
 	public void outputTestReport()
 	{
