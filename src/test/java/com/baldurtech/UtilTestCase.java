@@ -78,6 +78,15 @@ public class UtilTestCase
 		}
 	}
 	
+	public void assertNull(Object actualResult)
+	{
+		if(actualResult != null)
+		{
+			result = false;
+			System.out.println("Expected: " + null + " ,but: " + actualResult);
+		}
+	}
+	
 	public static void outputTestReport()
 	{
 		if(result)

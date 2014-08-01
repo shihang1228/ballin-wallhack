@@ -46,7 +46,7 @@ public class FizzBuzzTest extends UtilTestCase
 	
 	public void test_null_should_be_null()
 	{
-		assertEquals(null,null);
+		assertNull(null);
 	}
 	
 	public void test_12_should_be_12()
