@@ -60,6 +60,15 @@ public class UtilTestCase
 		return testMethods;
 	}
 	
+	public void assertTrue(boolean actualResult)
+	{
+		if(!actualResult)
+		{
+			result = false;
+			System.out.println("Expected: " + true + " ,but: " + actualResult);
+		}
+	}
+	
 	public void assertEquals(Object expectedResult, Object actualResult)
 	{
 		if(actualResult == null && expectedResult == null)

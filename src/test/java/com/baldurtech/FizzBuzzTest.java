@@ -54,6 +54,11 @@ public class FizzBuzzTest extends UtilTestCase
 		assertEquals("shihang",null);
 	}
 	
+	public void test_true_should_be_true()
+	{
+		assertTrue(1+1 != 2);
+	}
+	
 	public void test_null_should_be_shihang()
 	{
 		assertEquals(null,5);
