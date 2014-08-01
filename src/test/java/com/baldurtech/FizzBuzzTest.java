@@ -11,6 +11,19 @@ public class FizzBuzzTest
 	public static void main(String[] args) throws Exception
 	{
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
+		List<Method> testMethods = fizzBuzzTest.getAllMethods();
+		for(Method testMethod: testMethods)
+		{
+			FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
+			testMethod.invoke(fizzBuzzTestCase);
+		}
+		
+		fizzBuzzTest.outputTestReport();
+		
+	}
+	
+	public List<Method> getAllMethods()
+	{
 		Method[] methods = FizzBuzzTest.class.getDeclaredMethods();
 		List<Method> testMethods = new ArrayList<Method>();
 		for(Method method: methods)
@@ -21,14 +34,8 @@ public class FizzBuzzTest
 				testMethods.add(method);
 			}		
 		}
-		for(Method testMethod: testMethods)
-		{
-			FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
-			testMethod.invoke(fizzBuzzTestCase);
-		}
 		
-		fizzBuzzTest.outputTestReport();
-		
+		return testMethods;
 	}
 	
 	public void assertEquals(String expectedResult, String actualResult)
