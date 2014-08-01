@@ -12,14 +12,26 @@ public class FizzBuzzTest
 	{
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
 		List<Method> testMethods = fizzBuzzTest.getAllMethods();
-		for(Method testMethod: testMethods)
-		{
-			FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
-			testMethod.invoke(fizzBuzzTestCase);
-		}
+		fizzBuzzTest.runAllTest(testMethods);
 		
 		fizzBuzzTest.outputTestReport();
 		
+	}
+	
+	public void runAllTest(List<Method> testMethods)
+	{
+		for(Method testMethod: testMethods)
+			{
+				try
+				{
+					FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
+					testMethod.invoke(fizzBuzzTestCase);
+				}
+				catch(Exception e)
+				{
+					System.out.println(e);
+				}
+			}
 	}
 	
 	public List<Method> getAllMethods()
