@@ -1,6 +1,8 @@
 package com.baldurtech;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FizzBuzzTest
 {
@@ -10,15 +12,19 @@ public class FizzBuzzTest
 	{
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
 		Method[] methods = FizzBuzzTest.class.getDeclaredMethods();
+		List<Method> testMethods = new ArrayList<Method>();
 		for(Method method: methods)
 		{
 			if(method.getName().startsWith("test"))
 			{
 				System.out.println("testing: " + method.getName());
-				
-				FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
-				method.invoke(fizzBuzzTestCase);
-			}
+				testMethods.add(method);
+			}		
+		}
+		for(Method testMethod: testMethods)
+		{
+			FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
+			testMethod.invoke(fizzBuzzTestCase);
 		}
 		
 		fizzBuzzTest.outputTestReport();
