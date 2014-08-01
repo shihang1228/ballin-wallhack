@@ -1,82 +1,46 @@
 package com.baldurtech;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
-import org.reflections.Reflections;
-
-public class FizzBuzzTest
+public class FizzBuzzTest extends UtilTestCase
 {
-	public static Boolean result = true;
-	
-	public static void main(String[] args) throws Exception
+	public void test_1_should_be_1()
 	{
-		if(args.length > 0)
-		{
-			String testPackage = args[0];
-			Reflections reflections = new Reflections(testPackage);
-			
-			Set<Class<? extends FizzBuzzTest>> allTestCase = reflections.getSubTypesOf(FizzBuzzTest.class);
-			for(Class clazz : allTestCase)
-			{
-				System.out.println("Testing:" + clazz.getName());
-				runAllTest(clazz);	
-			}
-			outputTestReport();		
-		}
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("1", fizzBuzz.say(1));
 	}
 	
-	public static void runAllTest(Class clazz)
+	public void test_2_should_be_2()
 	{
-		for(Method testMethod: getAllMethods(clazz))
-			{
-				try
-				{
-					Object obj = clazz.newInstance();
-					testMethod.invoke(obj);
-				}
-				catch(Exception e)
-				{
-					System.out.println(e);
-				}
-			}
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("2", fizzBuzz.say(2));	
 	}
 	
-	public static List<Method> getAllMethods(Class clazz)
+	public void test_3_should_be_Fizz()
 	{
-		Method[] methods = clazz.getDeclaredMethods();
-		List<Method> testMethods = new ArrayList<Method>();
-		for(Method method: methods)
-		{
-			if(method.getName().startsWith("test"))
-			{
-				System.out.println("	testing: " + method.getName());
-				testMethods.add(method);
-			}		
-		}
-		
-		return testMethods;
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("Fizz", fizzBuzz.say(3));	
 	}
 	
-	public void assertEquals(String expectedResult, String actualResult)
+	public void test_5_should_be_Buzz()
 	{
-		if(false == expectedResult.equals(actualResult))
-		{
-			result = false;
-			System.out.println("Expected: " + expectedResult + " ,but: " + actualResult);
-		}
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("Buzz", fizzBuzz.say(5));	
 	}
-	public static void outputTestReport()
+	
+	public void test_6_should_be_Fizz()
 	{
-		if(result)
-		{
-			System.out.println("Test Success!");
-		}
-		else
-		{
-			System.out.println("Test Failed!");
-		}
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("Fizz",fizzBuzz.say(6));
+	}
+	
+	public void test_10_should_be_Buzz()
+	{
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("Buzz",fizzBuzz.say(10));
+	}
+	
+	public void test_15_should_be_FizzBuzz()
+	{
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("FizzBuzz",fizzBuzz.say(15));
 	}
 }
