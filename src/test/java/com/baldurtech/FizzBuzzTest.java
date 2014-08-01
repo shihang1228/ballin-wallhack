@@ -1,21 +1,25 @@
 package com.baldurtech;
 
+import java.lang.reflect.Method;
 
 public class FizzBuzzTest
 {
 	public static Boolean result = true;
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
-		FizzBuzzTestCase fizzBuzzTestCase = new FizzBuzzTestCase();
-		fizzBuzzTestCase.test_1_should_be_1();
-		fizzBuzzTestCase.test_2_should_be_2();
-		fizzBuzzTestCase.test_3_should_be_Fizz();
-		fizzBuzzTestCase.test_5_should_be_Buzz();
-		fizzBuzzTestCase.test_6_should_be_Fizz();
-		fizzBuzzTestCase.test_10_should_be_Buzz();
-		fizzBuzzTestCase.test_15_should_be_FizzBuzz();
+		Method[] methods = FizzBuzzTest.class.getDeclaredMethods();
+		for(Method method: methods)
+		{
+			if(method.getName().startsWith("test"))
+			{
+				System.out.println("testing: " + method.getName());
+				
+				FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
+				method.invoke(fizzBuzzTestCase);
+			}
+		}
 		
 		fizzBuzzTest.outputTestReport();
 		
