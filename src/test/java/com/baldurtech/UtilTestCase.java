@@ -68,6 +68,16 @@ public class UtilTestCase
 			System.out.println("Expected: " + expectedResult + " ,but: " + actualResult);
 		}
 	}
+	 
+	public void assertEquals(int expectedResult, int actualResult)
+	{
+		if(expectedResult != actualResult)
+		{
+			result = false;
+			System.out.println("Expected: " + expectedResult + " ,but: " + actualResult);
+		}
+	}
+	
 	public static void outputTestReport()
 	{
 		if(result)
