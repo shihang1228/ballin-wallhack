@@ -60,6 +60,23 @@ public class UtilTestCase
 		return testMethods;
 	}
 	
+	public void assertEquals(Object expectedResult, Object actualResult)
+	{
+		if(actualResult == null && expectedResult == null)
+		{
+			assertNull(actualResult);
+		}
+		else if(actualResult != null && expectedResult == null)
+		{
+			result = false;
+			System.out.println("Expected: " + expectedResult + " ,but: " + actualResult);
+		}		
+		else if(expectedResult != null)
+		{
+			assertEquals(expectedResult, actualResult);
+		}
+	}
+	
 	public void assertEquals(String expectedResult, String actualResult)
 	{
 		if(false == expectedResult.equals(actualResult))
