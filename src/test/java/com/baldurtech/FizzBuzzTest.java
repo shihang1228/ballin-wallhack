@@ -13,17 +13,19 @@ public class FizzBuzzTest
 	
 	public static void main(String[] args) throws Exception
 	{
-		String testPackage = "com.baldurtech";
-		
-		Reflections reflections = new Reflections(testPackage);
-		
-		Set<Class<? extends FizzBuzzTest>> allTestCase = reflections.getSubTypesOf(FizzBuzzTest.class);
-		for(Class clazz : allTestCase)
+		if(args.length > 0)
 		{
-			System.out.println("Testing:" + clazz.getName());
-			runAllTest(clazz);	
+			String testPackage = args[0];
+			Reflections reflections = new Reflections(testPackage);
+			
+			Set<Class<? extends FizzBuzzTest>> allTestCase = reflections.getSubTypesOf(FizzBuzzTest.class);
+			for(Class clazz : allTestCase)
+			{
+				System.out.println("Testing:" + clazz.getName());
+				runAllTest(clazz);	
+			}
+			outputTestReport();		
 		}
-		outputTestReport();		
 	}
 	
 	public static void runAllTest(Class clazz)
