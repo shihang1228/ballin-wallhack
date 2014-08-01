@@ -88,7 +88,11 @@ public class UtilTestCase
 	
 	public void assertEquals(String expectedResult, String actualResult)
 	{
-		if(false == expectedResult.equals(actualResult))
+		if(expectedResult == null)
+		{
+			assertNull(actualResult);
+		}
+		else if(false == expectedResult.equals(actualResult))
 		{
 			result = false;
 			System.out.println("Expected: " + expectedResult + " ,but: " + actualResult);
