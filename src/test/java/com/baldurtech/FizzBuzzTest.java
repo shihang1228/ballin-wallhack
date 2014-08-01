@@ -3,14 +3,26 @@ package com.baldurtech;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import org.reflections.Reflections;
 
 public class FizzBuzzTest
 {
 	public static Boolean result = true;
 	
 	public static void main(String[] args) throws Exception
-	{	
-		runAllTest(FizzBuzzTestCase.class);	
+	{
+		String testPackage = "com.baldurtech";
+		
+		Reflections reflections = new Reflections(testPackage);
+		
+		Set<Class<? extends FizzBuzzTest>> allTestCase = reflections.getSubTypesOf(FizzBuzzTest.class);
+		for(Class clazz : allTestCase)
+		{
+			System.out.println("Testing:" + clazz.getName());
+			runAllTest(clazz);	
+		}
 		outputTestReport();		
 	}
 	
@@ -38,7 +50,7 @@ public class FizzBuzzTest
 		{
 			if(method.getName().startsWith("test"))
 			{
-				System.out.println("testing: " + method.getName());
+				System.out.println("	testing: " + method.getName());
 				testMethods.add(method);
 			}		
 		}
