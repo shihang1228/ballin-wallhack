@@ -10,20 +10,21 @@ public class FizzBuzzTest
 	
 	public static void main(String[] args) throws Exception
 	{
+		Class clazz = FizzBuzzTestCase.class;
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
-		fizzBuzzTest.runAllTest();
+		fizzBuzzTest.runAllTest(clazz);
 		
 		fizzBuzzTest.outputTestReport();
 		
 	}
 	
-	public void runAllTest()
+	public void runAllTest(Class clazz)
 	{
-		for(Method testMethod: getAllMethods())
+		for(Method testMethod: getAllMethods(clazz))
 			{
 				try
 				{
-					Object obj = FizzBuzzTestCase.class.newInstance();
+					Object obj = clazz.newInstance();
 					testMethod.invoke(obj);
 				}
 				catch(Exception e)
@@ -33,9 +34,9 @@ public class FizzBuzzTest
 			}
 	}
 	
-	public List<Method> getAllMethods()
+	public List<Method> getAllMethods(Class clazz)
 	{
-		Method[] methods = FizzBuzzTest.class.getDeclaredMethods();
+		Method[] methods = clazz.getDeclaredMethods();
 		List<Method> testMethods = new ArrayList<Method>();
 		for(Method method: methods)
 		{
