@@ -43,4 +43,9 @@ public class FizzBuzzTest extends UtilTestCase
 		FizzBuzz fizzBuzz = new FizzBuzz();
 		assertEquals("FizzBuzz",fizzBuzz.say(15));
 	}
+	
+	public void test_12_should_be_12()
+	{
+		assertEquals(12,12);
+	}
 }
