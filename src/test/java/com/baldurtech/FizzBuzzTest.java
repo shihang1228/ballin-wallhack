@@ -11,21 +11,20 @@ public class FizzBuzzTest
 	public static void main(String[] args) throws Exception
 	{
 		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
-		List<Method> testMethods = fizzBuzzTest.getAllMethods();
-		fizzBuzzTest.runAllTest(testMethods);
+		fizzBuzzTest.runAllTest();
 		
 		fizzBuzzTest.outputTestReport();
 		
 	}
 	
-	public void runAllTest(List<Method> testMethods)
+	public void runAllTest()
 	{
-		for(Method testMethod: testMethods)
+		for(Method testMethod: getAllMethods())
 			{
 				try
 				{
-					FizzBuzzTestCase fizzBuzzTestCase = (FizzBuzzTestCase)FizzBuzzTestCase.class.newInstance();
-					testMethod.invoke(fizzBuzzTestCase);
+					Object obj = FizzBuzzTestCase.class.newInstance();
+					testMethod.invoke(obj);
 				}
 				catch(Exception e)
 				{
