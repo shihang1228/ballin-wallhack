@@ -9,16 +9,12 @@ public class FizzBuzzTest
 	public static Boolean result = true;
 	
 	public static void main(String[] args) throws Exception
-	{
-		Class clazz = FizzBuzzTestCase.class;
-		FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
-		fizzBuzzTest.runAllTest(clazz);
-		
-		fizzBuzzTest.outputTestReport();
-		
+	{	
+		runAllTest(FizzBuzzTestCase.class);	
+		outputTestReport();		
 	}
 	
-	public void runAllTest(Class clazz)
+	public static void runAllTest(Class clazz)
 	{
 		for(Method testMethod: getAllMethods(clazz))
 			{
@@ -34,7 +30,7 @@ public class FizzBuzzTest
 			}
 	}
 	
-	public List<Method> getAllMethods(Class clazz)
+	public static List<Method> getAllMethods(Class clazz)
 	{
 		Method[] methods = clazz.getDeclaredMethods();
 		List<Method> testMethods = new ArrayList<Method>();
@@ -58,7 +54,7 @@ public class FizzBuzzTest
 			System.out.println("Expected: " + expectedResult + " ,but: " + actualResult);
 		}
 	}
-	public void outputTestReport()
+	public static void outputTestReport()
 	{
 		if(result)
 		{
